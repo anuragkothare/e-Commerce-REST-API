@@ -4,7 +4,7 @@ appConfig.port = 5000;
 appConfig.allowedCorsOrigin = "*";
 appConfig.env = "dev";
 appConfig.db = {
-    uri: ''
+    uri: 'mongodb://127.0.0.1:27017/e-commerceDB'
 };
 appConfig.apiVersion = '/api/v1';
 
@@ -16,4 +16,4 @@ module.exports = {
     db: appConfig.db,
     apiVersion: appConfig.apiVersion
 
-};  // end of module.exports
+}; // end of module.exports

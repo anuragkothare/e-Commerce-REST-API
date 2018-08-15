@@ -1,0 +1,346 @@
+[
+  {
+    "type": "post",
+    "url": "/api/v1/cart/addProducts",
+    "title": "Add Products in the cart",
+    "version": "0.0.1",
+    "group": "create",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "[String]",
+            "optional": false,
+            "field": "productID[]",
+            "description": "<p>the Array of productID should be passed as the URL parameter</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": " {\n\t    \"error\": false,\n\t    \"message\": \"Products Added Successfully in Cart.\",\n\t    \"status\": 200,\n\t    \"data\": [\n                            {\n                                    productID: \"string\",\n                                    addedOn: Date\n                                \n                            }\n\t    \t\t]\n\t    \t}\n\t\t}\n\t}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "\n{\n\t    \"error\": true,\n\t    \"message\": \"Failed to add products in Cart\",\n\t    \"status\": 500,\n\t    \"data\": null\n\t   }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/cart.js",
+    "groupTitle": "create",
+    "name": "PostApiV1CartAddproducts"
+  },
+  {
+    "type": "post",
+    "url": "/api/v1/products/create",
+    "title": "Create a product",
+    "version": "0.0.1",
+    "group": "create",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>the product name should be passed as the body parameter</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "category",
+            "description": "<p>the product category should be passed as the body parameter</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "price",
+            "description": "<p>the product price should be passed as the body parameter</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "brand",
+            "description": "<p>the product brand should be passed as the body parameter</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "isInStock",
+            "description": "<p>the product stock status should be passed as the body parameter</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": false,
+            "field": "sizes",
+            "description": "<p>the product sizes should be passed as the body parameter</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "numberOfPiecesAvailable",
+            "description": "<p>the number of available pieces of product should be passed as the body parameter</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": " {\n\t    \"error\": false,\n\t    \"message\": \"Product Created Successfully\",\n\t    \"status\": 200,\n\t    \"data\": [\n                        {\n                                productID: \"string\",\n                                name: \"string\",\n                                category: \"string\",\n                                price: number,\n                                brand: \"string\",\n                                isInStock: boolean,\n                                sizes: object(type = array),\n                                numberOfPiecesAvailable : number,\n                                addedOn: \"date\"\n                        }\n                ]\n\t    \t}\n\t\t}\n\t}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "\n{\n\t    \"error\": true,\n\t    \"message\": \"Error Occured\",\n\t    \"status\": 500,\n\t    \"data\": null\n\t   }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/product.js",
+    "groupTitle": "create",
+    "name": "PostApiV1ProductsCreate"
+  },
+  {
+    "type": "post",
+    "url": "/api/v1/cart/removeProducts",
+    "title": "Remove Products in the cart",
+    "version": "0.0.1",
+    "group": "delete",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "[String]",
+            "optional": false,
+            "field": "productID[]",
+            "description": "<p>the Array of productID should be passed as the URL parameter</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": " {\n\t    \"error\": false,\n\t    \"message\": \"Products Removed Successfully from Cart.\",\n\t    \"status\": 200,\n\t    \"data\": [\n                            {\n                                productID: \"string\",\n                                addedOn: Date\n                                \n                            }\n\t    \t\t]\n\t    \t}\n\t\t}\n\t}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "\n{\n\t    \"error\": true,\n\t    \"message\": \"Failed to remove products from the Cart\",\n\t    \"status\": 500,\n\t    \"data\": null\n\t   }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/cart.js",
+    "groupTitle": "delete",
+    "name": "PostApiV1CartRemoveproducts"
+  },
+  {
+    "type": "post",
+    "url": "/api/v1/products/remove/:productID",
+    "title": "Delete a particular product by productID",
+    "version": "0.0.1",
+    "group": "delete",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "productID",
+            "description": "<p>the productID should be passed as the URL parameter</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": " {\n\t    \"error\": false,\n\t    \"message\": \"Product Deleted Successfully.\",\n\t    \"status\": 200,\n\t    \"data\": []\n\t    \t}\n\t\t}\n\t}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "\n{\n\t    \"error\": true,\n\t    \"message\": \"Error Occured\",\n\t    \"status\": 500,\n\t    \"data\": null\n\t   }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/product.js",
+    "groupTitle": "delete",
+    "name": "PostApiV1ProductsRemoveProductid"
+  },
+  {
+    "type": "put",
+    "url": "/api/v1/products/edit/:productID",
+    "title": "Edit a particular product",
+    "version": "0.0.1",
+    "group": "edit",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "productID",
+            "description": "<p>the productID should be passed as the URL parameter</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": " {\n\t    \"error\": false,\n\t    \"message\": \"Product Edited Successfully.\",\n\t    \"status\": 200,\n\t    \"data\": [\n                        {\n                                productID: \"string\",\n                                name: \"string\",\n                                category: \"string\",\n                                price: number,\n                                brand: \"string\",\n                                isInStock: boolean,\n                                sizes: object(type = array),\n                                numberOfPiecesAvailable : number,\n                                addedOn: \"date\"\n                        }\n\t    \t\t]\n\t    \t}\n\t\t}\n\t}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "\n{\n\t    \"error\": true,\n\t    \"message\": \"Error Occured\",\n\t    \"status\": 500,\n\t    \"data\": null\n\t   }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/product.js",
+    "groupTitle": "edit",
+    "name": "PutApiV1ProductsEditProductid"
+  },
+  {
+    "type": "get",
+    "url": "/api/v1/cart/viewProducts",
+    "title": "Get all products present in cart",
+    "version": "0.0.1",
+    "group": "read",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": " {\n\t    \"error\": false,\n\t    \"message\": \"Displaying all Products Present in Cart\",\n\t    \"status\": 200,\n\t    \"data\": [\n                            {\n                                        productID: \"string\",\n                                        name: \"string\",\n                                        category: \"string\",\n                                        price: number,\n                                        brand: \"string\",\n                                        isInStock: boolean,\n                                        sizes: object(type = array),\n                                        numberOfPiecesAvailable : number,\n                                        addedOn: \"date\"\n                            }\n\t    \t\t]\n\t    \t}\n\t\t}\n\t}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "\n{\n\t    \"error\": true,\n\t    \"message\": \"Failed To Find Product Details\",\n\t    \"status\": 500,\n\t    \"data\": null\n\t   }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/cart.js",
+    "groupTitle": "read",
+    "name": "GetApiV1CartViewproducts"
+  },
+  {
+    "type": "get",
+    "url": "/api/v1/products/all",
+    "title": "Get all products",
+    "version": "0.0.1",
+    "group": "read",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": " {\n\t    \"error\": false,\n\t    \"message\": \"All Product Details Found\",\n\t    \"status\": 200,\n\t    \"data\": [\n                            {\n                                        productID: \"string\",\n                                        name: \"string\",\n                                        category: \"string\",\n                                        price: number,\n                                        brand: \"string\",\n                                        isInStock: boolean,\n                                        sizes: object(type = array),\n                                        numberOfPiecesAvailable : number,\n                                        addedOn: \"date\"\n                            }\n\t    \t\t]\n\t    \t}\n\t\t}\n\t}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "\n{\n\t    \"error\": true,\n\t    \"message\": \"Failed To Find Product Details\",\n\t    \"status\": 500,\n\t    \"data\": null\n\t   }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/product.js",
+    "groupTitle": "read",
+    "name": "GetApiV1ProductsAll"
+  },
+  {
+    "type": "get",
+    "url": "/api/v1/products/get/:productID",
+    "title": "Get a particular product",
+    "version": "0.0.1",
+    "group": "read",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "productID",
+            "description": "<p>the productID should be passed as the URL parameter</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": " {\n\t    \"error\": false,\n\t    \"message\": \"Product Found Successfully.\",\n\t    \"status\": 200,\n\t    \"data\": [\n                            {\n                                    productID: \"string\",\n                                    name: \"string\",\n                                    category: \"string\",\n                                    price: number,\n                                    brand: \"string\",\n                                    isInStock: boolean,\n                                    sizes: object(type = array),\n                                    numberOfPiecesAvailable : number,\n                                    addedOn: \"date\"\n                            }\n\t    \t\t]\n\t    \t}\n\t\t}\n\t}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "\n{\n\t    \"error\": true,\n\t    \"message\": \"Error Occured\",\n\t    \"status\": 500,\n\t    \"data\": null\n\t   }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/product.js",
+    "groupTitle": "read",
+    "name": "GetApiV1ProductsGetProductid"
+  }
+]
